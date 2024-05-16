@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hii bro </h1>
+    <ul id="dd"></ul>
+    <script>
+        let players = ['vasu','hemanth','sreekanth','ravi','krishna','akhil']
+
+        function genPlayers(){
+            document.getElementById('dd').innerHTML = ''
+            players.forEach((p,i) => {
+            let newLi = document.createElement('li')
+            newLi.innerHTML = p;
+            document.getElementById('dd').appendChild(newLi)
+            let btn = document.createElement("button")
+            btn.innerHTML = 'delete'
+            newLi.appendChild(btn)
+            btn.onclick = function(){
+                players.splice(i,1)
+                genPlayers()
+            }
+            
+        })
+        }
+        genPlayers()
+    </script>
+</body>
+</html>
